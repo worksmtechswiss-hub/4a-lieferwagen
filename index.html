@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4A Lieferwagen — Lieferwagen mieten in Winterthur | ab CHF 69/Tag</title>
+<meta name="description" content="Lieferwagen mieten in Winterthur: Kompakt bis Grossraum ab CHF 69 pro Tag. Vollkasko ohne Selbstbehalt, gratis Lieferung im Umkreis von 30 km, 24/7 abholbereit.">
+<meta name="theme-color" content="#1E3A5F">
+<link rel="canonical" href="https://worksmtechswiss-hub.github.io/4a-lieferwagen/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_CH">
+<meta property="og:title" content="4A Lieferwagen — Lieferwagen mieten in Winterthur">
+<meta property="og:description" content="Kompakt bis Grossraum ab CHF 69 pro Tag. Vollkasko ohne Selbstbehalt, gratis Lieferung 30 km, 24/7 abholbereit.">
+<meta property="og:site_name" content="4A Lieferwagen">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23536DFE'/%3E%3Ctext x='32' y='44' font-family='Montserrat,Arial,sans-serif' font-size='30' font-weight='800' text-anchor='middle' fill='%23fff'%3E4A%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRental",
+  "name": "4A Lieferwagen",
+  "description": "Lieferwagenvermietung in Winterthur für Privat- und Geschäftskunden.",
+  "email": "info@4a-lieferwagen.ch",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "St. Gallerstrasse 182",
+    "postalCode": "8404",
+    "addressLocality": "Winterthur",
+    "addressCountry": "CH"
+  },
+  "openingHours": "Mo-Su 00:00-23:59",
+  "priceRange": "CHF 69–159 pro Tag"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#fleet">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <nav class="nav container" aria-label="Hauptnavigation">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true">4A</span>
+      <span class="brand__text">
+        <span class="brand__name">4A Lieferwagen</span>
+        <span class="brand__eyebrow">Winterthur</span>
+      </span>
+    </a>
+
+    <button class="nav__burger" type="button" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <div class="nav__menu" id="navMenu">
+      <ul class="nav__links">
+        <li><a href="#fleet">Fuhrpark</a></li>
+        <li><a href="#usecases">Einsatzzwecke</a></li>
+        <li><a href="#benefits">Warum 4A</a></li>
+        <li><a href="#sell">Fahrzeug verkaufen</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a class="btn btn--outline" href="#sell">Fahrzeug verkaufen</a>
+        <a class="btn btn--primary btn--glow" href="#top">Verfügbarkeit prüfen</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero__blob hero__blob--left" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--right" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <p class="badge"><span class="badge__dot" aria-hidden="true"></span>Über 1'200 Vermietungen pro Jahr</p>
+
+      <h1 class="hero__title">Ihr Lieferwagen —<br><span class="hero__title-accent">wann immer Sie ihn brauchen</span></h1>
+      <p class="hero__lead">Kompakt bis Grossraum, ab CHF 69 pro Tag. Prüfen Sie in Sekunden die Verfügbarkeit — 24/7 abholbereit in Winterthur.</p>
+
+      <form class="searchbar" id="searchForm" novalidate>
+        <div class="searchbar__field">
+          <label for="vehicleType">Fahrzeugtyp</label>
+          <div class="input-wrap">
+            <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="truck"></i></span>
+            <select id="vehicleType" name="vehicleType">
+              <option>Kompakt (3 m³)</option>
+              <option>Mittel (8 m³)</option>
+              <option>Gross (13 m³)</option>
+              <option>Maxi (17 m³)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="searchbar__field">
+          <label for="pickupDate">Abholdatum</label>
+          <div class="input-wrap">
+            <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="calendar"></i></span>
+            <input type="date" id="pickupDate" name="pickupDate" required>
+          </div>
+        </div>
+
+        <div class="searchbar__field">
+          <label for="returnDate">Rückgabe</label>
+          <div class="input-wrap">
+            <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="calendar"></i></span>
+            <input type="date" id="returnDate" name="returnDate" required>
+          </div>
+        </div>
+
+        <button class="btn btn--primary btn--search" type="submit">Prüfen <i data-lucide="arrow-right"></i></button>
+        <p class="searchbar__error" id="searchError" role="alert" hidden></p>
+      </form>
+
+      <ul class="trust">
+        <li><i data-lucide="shield-check" aria-hidden="true"></i>Vollkasko ohne Selbstbehalt</li>
+        <li><i data-lucide="truck" aria-hidden="true"></i>Gratis Lieferung 30 km</li>
+        <li><i data-lucide="clock" aria-hidden="true"></i>24/7 abholbereit</li>
+      </ul>
+
+      <!-- Foto ersetzen: assets/img/hero.jpg (siehe README) -->
+      <div class="hero__photo photo" data-photo="Grosses Hero-Foto: Lieferwagen-Flotte"></div>
+    </div>
+  </section>
+
+  <!-- Fuhrpark -->
+  <section class="section" id="fleet">
+    <div class="container">
+      <header class="section__head">
+        <p class="eyebrow">Unser Fuhrpark</p>
+        <h2>Vier Fahrzeuge, für jede Ladung</h2>
+        <p class="section__lead">Alle Fahrzeuge sind gewartet, vollkasko-versichert und rund um die Uhr abholbereit.</p>
+      </header>
+
+      <div class="fleet" id="fleetList"></div>
+    </div>
+  </section>
+
+  <!-- Warum 4A -->
+  <section class="section section--alt" id="benefits">
+    <div class="container">
+      <header class="section__head">
+        <p class="eyebrow">Nur bei 4A</p>
+        <h2>Worauf warten Sie?</h2>
+        <p class="section__lead">Erstklassige Fahrzeuge zu fairen Preisen — mit einem Service, der seinesgleichen sucht.</p>
+      </header>
+
+      <div class="benefits" id="benefitList"></div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container stats__grid" id="statList"></div>
+  </section>
+
+  <!-- Einsatzzwecke -->
+  <section class="section" id="usecases">
+    <div class="container">
+      <header class="section__head">
+        <p class="eyebrow">Einsatzzwecke</p>
+        <h2>Für jede Situation gemacht</h2>
+        <p class="section__lead">Von der Zügelkiste bis zum Marktstand — 4A bringt alles ans Ziel.</p>
+      </header>
+
+      <ul class="usecases" id="usecaseList"></ul>
+    </div>
+  </section>
+
+  <!-- Fahrzeug verkaufen -->
+  <section class="section section--alt" id="sell">
+    <div class="container sell">
+      <div class="sell__copy">
+        <span class="rule" aria-hidden="true"></span>
+        <h2>Wir kaufen Ihren Lieferwagen</h2>
+        <p>Sie möchten Ihren Transporter verkaufen? 4A macht Ihnen ein faires Angebot — schnell, unkompliziert und zu attraktiven Konditionen.</p>
+        <ul class="checklist">
+          <li><i data-lucide="check" aria-hidden="true"></i>Faire Marktbewertung innert 24 Stunden</li>
+          <li><i data-lucide="check" aria-hidden="true"></i>Barzahlung oder Verrechnung möglich</li>
+          <li><i data-lucide="check" aria-hidden="true"></i>Kostenlose Abholung in der ganzen Schweiz</li>
+        </ul>
+      </div>
+
+      <form class="lead-form" id="sellForm" novalidate>
+        <div class="lead-form__body" id="sellFormBody">
+          <h3>Fahrzeug bewerten lassen</h3>
+          <p class="lead-form__sub">Unverbindliche Bewertung anfordern</p>
+
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="sellName">Name</label>
+              <div class="input-wrap">
+                <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="user"></i></span>
+                <input type="text" id="sellName" name="name" placeholder="Vor- und Nachname" autocomplete="name" required>
+              </div>
+            </div>
+            <div class="lead-form__field">
+              <label for="sellPhone">Telefon</label>
+              <div class="input-wrap">
+                <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="phone"></i></span>
+                <input type="tel" id="sellPhone" name="phone" placeholder="079 123 45 67" autocomplete="tel" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="sellBrand">Marke</label>
+              <div class="input-wrap">
+                <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="truck"></i></span>
+                <input type="text" id="sellBrand" name="brand" placeholder="z.B. Mercedes" required>
+              </div>
+            </div>
+            <div class="lead-form__field">
+              <label for="sellModel">Modell</label>
+              <div class="input-wrap">
+                <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="tag"></i></span>
+                <input type="text" id="sellModel" name="model" placeholder="z.B. Sprinter 314">
+              </div>
+            </div>
+          </div>
+
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="sellKm">Kilometerstand</label>
+              <div class="input-wrap">
+                <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="gauge"></i></span>
+                <input type="text" id="sellKm" name="km" placeholder="z.B. 120'000 km">
+              </div>
+            </div>
+            <div class="lead-form__field">
+              <label for="sellYear">Baujahr</label>
+              <div class="input-wrap">
+                <span class="input-wrap__icon" aria-hidden="true"><i data-lucide="calendar"></i></span>
+                <input type="text" id="sellYear" name="year" placeholder="z.B. 2019" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+          <p class="lead-form__error" id="sellError" role="alert" hidden></p>
+
+          <button class="btn btn--primary btn--block" type="submit">Bewertung anfordern <i data-lucide="arrow-right"></i></button>
+
+          <ul class="lead-form__notes">
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i>Faire Bewertung</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i>Innert 24h</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i>Unverbindlich</li>
+          </ul>
+        </div>
+
+        <div class="lead-form__success" id="sellSuccess" hidden>
+          <div class="lead-form__check" aria-hidden="true"><i data-lucide="check-circle-2"></i></div>
+          <h3>Anfrage erhalten!</h3>
+          <p>Danke! Wir bewerten Ihr Fahrzeug und melden uns innert 24 Stunden bei Ihnen.</p>
+          <button class="btn btn--ghost" type="button" id="sellReset">Neue Anfrage</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <h2 class="faq__title">Häufige Fragen</h2>
+      <div class="faq" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- Abholort -->
+  <section class="section section--alt" id="location">
+    <div class="container location">
+      <div>
+        <p class="eyebrow">Abholort</p>
+        <h2>Zentral in Winterthur</h2>
+        <p class="location__lead">Holen Sie Ihren Lieferwagen bei uns ab — oder lassen Sie ihn sich im Umkreis von 30 km gratis liefern.</p>
+
+        <ul class="location__info">
+          <li>
+            <span class="icon-chip" aria-hidden="true"><i data-lucide="map-pin"></i></span>
+            <span><strong>St. Gallerstrasse 182</strong><span>8404 Winterthur</span></span>
+          </li>
+          <li>
+            <span class="icon-chip" aria-hidden="true"><i data-lucide="clock"></i></span>
+            <span><strong>24/7 Abholung &amp; Rückgabe</strong><span>Digitales Schlüsselsystem, 365 Tage</span></span>
+          </li>
+          <li>
+            <span class="icon-chip" aria-hidden="true"><i data-lucide="mail"></i></span>
+            <span><strong><a href="mailto:info@4a-lieferwagen.ch">info@4a-lieferwagen.ch</a></strong><span>Antwort innert 24 Stunden</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="location__map">
+        <iframe
+          src="https://maps.google.com/maps?q=St.%20Gallerstrasse%20182%2C%208404%20Winterthur&amp;z=15&amp;output=embed"
+          title="Karte: St. Gallerstrasse 182, 8404 Winterthur"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta__blob cta__blob--tl" aria-hidden="true"></div>
+    <div class="cta__blob cta__blob--br" aria-hidden="true"></div>
+    <div class="cta__inner">
+      <h2>Bereit für Ihren nächsten Transport?</h2>
+      <p>Prüfen Sie jetzt die Verfügbarkeit — unverbindlich und in unter 2 Minuten.</p>
+      <a class="btn btn--white btn--glow" href="#top">Verfügbarkeit prüfen <i data-lucide="arrow-right"></i></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="brand brand--light" href="#top">
+          <span class="brand__mark" aria-hidden="true">4A</span>
+          <span class="brand__name">4A Lieferwagen</span>
+        </a>
+        <p class="footer__about">Lieferwagen mieten in Winterthur — flexibel, fair und rund um die Uhr. Für Privat und Gewerbe.</p>
+      </div>
+
+      <div>
+        <h3>Fahrzeuge</h3>
+        <ul>
+          <li><a href="#fleet">Kompakt</a></li>
+          <li><a href="#fleet">Mittel</a></li>
+          <li><a href="#fleet">Gross</a></li>
+          <li><a href="#fleet">Maxi mit Ladelift</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Einsatzzwecke</h3>
+        <ul>
+          <li><a href="#usecases">Umzug</a></li>
+          <li><a href="#usecases">Möbeltransport</a></li>
+          <li><a href="#usecases">Firmenlieferung</a></li>
+          <li><a href="#usecases">Veranstaltungen</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Unternehmen</h3>
+        <ul>
+          <li><a href="#benefits">Über uns</a></li>
+          <li><a href="#location">Standort Winterthur</a></li>
+          <li><a href="#sell">Fahrzeug verkaufen</a></li>
+          <li><a href="mailto:info@4a-lieferwagen.ch">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 4A Lieferwagen · Winterthur</p>
+      <p>Made in Switzerland</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
