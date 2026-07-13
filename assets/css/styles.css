@@ -399,8 +399,7 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
   margin: 32px auto 0;
   text-align: left;
 }
-.searchbar__field { flex: 1; min-width: 150px; }
-.searchbar__field:first-child { min-width: 180px; }
+.searchbar__field { flex: 1; min-width: 180px; }
 .searchbar__error {
   flex-basis: 100%;
   margin: 0 4px 2px;
