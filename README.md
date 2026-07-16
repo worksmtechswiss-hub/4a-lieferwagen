@@ -32,14 +32,29 @@ Fahrzeuge, Vorteile, Stats, Einsatzzwecke und FAQ stehen als Listen zuoberst in
 `assets/js/main.js` und werden von dort gerendert. Preise oder ein neues Fahrzeug ändert man
 nur dort — nicht im HTML.
 
+### Fuhrpark
+
+Aktuell 4× **Mercedes Sprinter 316 CDI** mit Möbelkoffer (ab CHF 150/Tag). Ein weiteres
+Fahrzeug kommt als zusätzlicher Eintrag ins `fleet`-Array; die Karten rendern automatisch.
+
+Auf der Karte stehen bewusst nur belegte Angaben (Innenhöhe, Flügeltüren, Rückfahrkamera,
+Anhängerkupplung, Handschaltung). **Laderaum in m³, Nutzlast, Länge und Verbrauch fehlen
+noch** — sobald die Werte vorliegen, als weitere `specs`-Einträge ergänzen.
+
 ## Fotos einsetzen
 
-Die Bildflächen (Hero-Band und je Fahrzeugkarte) sind aktuell Platzhalter (`.photo`).
-Zum Ersetzen die Fotos unter `assets/img/` ablegen und den Platzhalter durch ein `<img>`
-tauschen — die Stellen sind im Code kommentiert:
+Foto ablegen unter:
 
-- Hero: `index.html`, `<div class="hero__photo photo" …>`
-- Fahrzeuge: `assets/js/main.js`, in `renderFleet()`
+```
+assets/img/sprinter-316.jpg
+```
+
+Mehr ist nicht nötig — Hero-Band und Fahrzeugkarte greifen automatisch darauf zu.
+Fehlt die Datei, entfernt sich das `<img>` selbst (`onerror`) und die graue
+Platzhalterfläche bleibt sichtbar. Die Seite bleibt also in jedem Fall heil.
+
+Ein anderer Pfad pro Fahrzeug: Feld `photo` im `fleet`-Eintrag in `assets/js/main.js`.
+Empfehlung: Querformat, mind. 1600 px breit, unter ~400 KB (JPG).
 
 ## Was noch ans Backend muss
 

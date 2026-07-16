@@ -521,6 +521,16 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
 }
 
 .vehicle__media { position: relative; min-height: 210px; }
+/* Foto liegt über dem Platzhalter; fehlt die Datei, entfernt sich das
+   <img> selbst (onerror) und der Platzhalter wird sichtbar. */
+.vehicle__media img,
+.hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .vehicle__class {
   position: absolute;
   top: 14px;
@@ -568,11 +578,21 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
 
 .vehicle__actions {
   display: flex;
-  gap: 12px;
+  gap: 12px 16px;
   align-items: center;
   margin-top: 22px;
   flex-wrap: wrap;
 }
+.vehicle__stock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--success);
+}
+.vehicle__stock i, .vehicle__stock svg.lucide { font-size: 15px; }
 
 /* ---------- Vorteile ---------- */
 

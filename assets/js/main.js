@@ -4,11 +4,26 @@
    Vorteile, Einsatzzwecke und FAQ gepflegt werden.
    ========================================================= */
 
+/* Fuhrpark. Weitere Fahrzeuge: einfach einen weiteren Eintrag ergänzen.
+   `photo` ist der Pfad zum Foto — fehlt die Datei, zeigt die Karte den
+   Platzhalter aus `photoAlt` an. */
 const fleet = [
-  { name: 'Kompakt', klass: 'Stadt-Transporter',  price: '69',  vol: '3 m³',  pay: '600 kg',   len: '4.5 m', fuel: '5.9 L', best: 'Ideal für Grosseinkäufe und kleine Umzüge.' },
-  { name: 'Mittel',  klass: 'Transporter L2H2',   price: '99',  vol: '8 m³',  pay: "1'000 kg", len: '5.4 m', fuel: '7.2 L', best: 'Der Allrounder für den Wohnungsumzug.' },
-  { name: 'Gross',   klass: 'Kastenwagen L3H2',   price: '129', vol: '13 m³', pay: "1'200 kg", len: '6.0 m', fuel: '8.4 L', best: 'Für grosse Umzüge und Möbeltransporte.' },
-  { name: 'Maxi',    klass: 'Grossraum L4H3',     price: '159', vol: '17 m³', pay: "1'400 kg", len: '6.7 m', fuel: '9.1 L', best: 'Maximaler Laderaum für Fernumzüge.' }
+  {
+    name: 'Mercedes Sprinter 316 CDI',
+    klass: 'Möbelkoffer',
+    price: '150',
+    count: 4,
+    best: 'Möbelkoffer mit Flügeltüren und 2.40 m Innenhöhe — ab Werk sind die Aufbauten tiefer. So transportieren Sie Schränke stehend.',
+    specs: [
+      { icon: 'arrow-up-down', text: '2.40 m Innenhöhe' },
+      { icon: 'door-open',     text: 'Flügeltüren' },
+      { icon: 'video',         text: 'Rückfahrkamera' },
+      { icon: 'link',          text: 'Anhängerkupplung' },
+      { icon: 'settings',      text: 'Handschaltung' }
+    ],
+    photo: 'assets/img/sprinter-316.jpg',
+    photoAlt: 'Mercedes Sprinter 316 CDI mit Möbelkoffer-Aufbau'
+  }
 ];
 
 const benefits = [
@@ -53,8 +68,8 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 function renderFleet() {
   document.getElementById('fleetList').innerHTML = fleet.map((v) => `
     <article class="vehicle">
-      <!-- Foto ersetzen: <img src="assets/img/${esc(v.name.toLowerCase())}.jpg" alt="Lieferwagen ${esc(v.name)}"> -->
       <div class="vehicle__media photo" data-photo="Foto ${esc(v.name)}">
+        <img src="${esc(v.photo)}" alt="${esc(v.photoAlt)}" loading="lazy" onerror="this.remove()">
         <span class="vehicle__class">${esc(v.klass)}</span>
       </div>
       <div class="vehicle__body">
@@ -69,14 +84,11 @@ function renderFleet() {
           </p>
         </div>
         <ul class="vehicle__specs">
-          <li><i data-lucide="package" aria-hidden="true"></i>${esc(v.vol)} Laderaum</li>
-          <li><i data-lucide="scale" aria-hidden="true"></i>${esc(v.pay)} Nutzlast</li>
-          <li><i data-lucide="ruler" aria-hidden="true"></i>${esc(v.len)} lang</li>
-          <li><i data-lucide="fuel" aria-hidden="true"></i>${esc(v.fuel)}/100km</li>
+          ${v.specs.map((s) => `<li><i data-lucide="${esc(s.icon)}" aria-hidden="true"></i>${esc(s.text)}</li>`).join('')}
         </ul>
         <div class="vehicle__actions">
           <a class="btn btn--primary" href="#top">Jetzt anfragen <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-          <a class="link-quiet" href="#faq">Details ansehen</a>
+          <p class="vehicle__stock"><i data-lucide="check-circle-2" aria-hidden="true"></i>${esc(v.count)} Fahrzeuge verfügbar</p>
         </div>
       </div>
     </article>
