@@ -21,7 +21,7 @@ const fleet = [
       { icon: 'link',          text: 'Anhängerkupplung' },
       { icon: 'settings',      text: 'Handschaltung' }
     ],
-    photo: 'assets/img/sprinter-316.jpg',
+    photo: 'assets/img/slml.webp',
     photoAlt: 'Mercedes Sprinter 316 CDI mit Möbelkoffer-Aufbau'
   }
 ];

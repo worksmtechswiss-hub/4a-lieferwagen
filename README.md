@@ -41,20 +41,22 @@ Auf der Karte stehen bewusst nur belegte Angaben (Innenhöhe, Flügeltüren, Rü
 Anhängerkupplung, Handschaltung). **Laderaum in m³, Nutzlast, Länge und Verbrauch fehlen
 noch** — sobald die Werte vorliegen, als weitere `specs`-Einträge ergänzen.
 
-## Fotos einsetzen
+## Fotos
 
-Foto ablegen unter:
+Aktuell im Einsatz: `assets/img/slml.webp` — an zwei Stellen, im Hero und auf der
+Fahrzeugkarte.
 
-```
-assets/img/sprinter-316.jpg
-```
+Das Foto ist **freigestellt** (transparenter Hintergrund). Darauf baut die Darstellung
+auf: `object-fit: contain`, im Hero ohne Kasten direkt auf dem Farbverlauf. Ein Ersatzfoto
+sollte deshalb ebenfalls freigestellt sein (PNG/WebP mit Alpha) — ein Bild mit
+ausfotografiertem Hintergrund würde im Hero als Rechteck aufliegen und die Wirkung brechen.
 
-Mehr ist nicht nötig — Hero-Band und Fahrzeugkarte greifen automatisch darauf zu.
-Fehlt die Datei, entfernt sich das `<img>` selbst (`onerror`) und die graue
-Platzhalterfläche bleibt sichtbar. Die Seite bleibt also in jedem Fall heil.
+Ersetzen: Datei gleich benennen, oder das Feld `photo` im `fleet`-Eintrag in
+`assets/js/main.js` bzw. das `<img>` im Hero (`index.html`) anpassen.
+Empfehlung: Querformat, mind. 1600 px breit, unter ~400 KB.
 
-Ein anderer Pfad pro Fahrzeug: Feld `photo` im `fleet`-Eintrag in `assets/js/main.js`.
-Empfehlung: Querformat, mind. 1600 px breit, unter ~400 KB (JPG).
+Fehlt die Datei, entfernt sich das `<img>` selbst (`onerror`) und die Platzhalterfläche
+wird sichtbar — die Seite bleibt in jedem Fall heil.
 
 ## Was noch ans Backend muss
 
@@ -70,3 +72,9 @@ Der Prototyp hat kein Backend. Zwei Stellen sind vorbereitet und im Code markier
 Basiert auf dem Handoff «4A Lieferwagen — Landingpage (Variante B)» aus Claude Design.
 Farben, Typografie, Abstände, Radien und Schatten sind als CSS-Variablen in `:root`
 (`assets/css/styles.css`) hinterlegt. Animationen respektieren `prefers-reduced-motion`.
+
+**Farbwelt: Blau-Violett** (abweichend vom ursprünglich blauen Handoff).
+`--accent-bright` (#7C4DFF) ist die Leitfarbe für CTAs, Links und Akzente auf hellem
+Grund. Auf dunklem Grund (Hero, Footer) ist sie zu dunkel für Text — dort
+`--accent-soft` (#8E7CFF) oder `--accent-glow` (#B39DFF) verwenden, sonst reisst der
+WCAG-Kontrast.
