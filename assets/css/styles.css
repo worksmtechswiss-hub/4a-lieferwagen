@@ -436,6 +436,8 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
 .input-wrap input,
 .input-wrap select {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   padding: 11px 12px 11px 38px;
   border: 1px solid var(--border);
   border-radius: var(--r-input);
@@ -452,6 +454,14 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
   -webkit-appearance: none;
   cursor: pointer;
 }
+/* iOS Safari gibt input[type=date] eine intrinsische Breite und lässt sie nicht
+   schrumpfen → das Feld lief auf dem iPhone rechts aus der Karte. appearance:none
+   entfernt die native Breite, sodass width/max-width greifen. */
+.input-wrap input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+.input-wrap input[type="date"]::-webkit-date-and-time-value { text-align: left; }
 .input-wrap input:focus,
 .input-wrap select:focus {
   border-color: var(--accent-bright);
@@ -621,7 +631,7 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
 
 .benefits {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .benefit {
@@ -657,7 +667,7 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
 }
 .stats__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 .stat { text-align: center; color: #fff; padding: 0 12px; }
@@ -1075,7 +1085,7 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
   .vehicle__top { flex-direction: column; align-items: flex-start; gap: 8px; }
   .vehicle__price { text-align: left; }
 
-  .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
+  .stats__grid { gap: 24px 16px; }
 
   .location { grid-template-columns: 1fr; }
 

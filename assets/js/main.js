@@ -27,17 +27,17 @@ const fleet = [
 ];
 
 const benefits = [
-  { icon: 'clock',        title: '24/7 Verfügbarkeit',      desc: 'Abholung und Rückgabe rund um die Uhr — dank unserem digitalen Schlüsselsystem.' },
-  { icon: 'receipt',      title: 'Transparente Preise',     desc: 'Keine versteckten Kosten. Sie wissen von Anfang an genau, was Sie zahlen.' },
-  { icon: 'truck',        title: 'Kostenloser Lieferservice', desc: 'Wir bringen den Lieferwagen im Umkreis von 30 km gratis zu Ihnen — nach Hause oder ins Büro.' },
-  { icon: 'shield-check', title: 'Vollkasko inklusive',     desc: 'Jede Miete beinhaltet eine umfassende Versicherung — ganz ohne Selbstbehalt.' }
+  { icon: 'clock',        title: 'Flexible Zeiten',     desc: 'Abholung und Rückgabe vereinbaren wir individuell — abgestimmt auf Ihre Termine.' },
+  { icon: 'receipt',      title: 'Transparente Preise', desc: 'Keine versteckten Kosten. Sie wissen von Anfang an genau, was Sie zahlen.' },
+  { icon: 'shield-check', title: 'Vollkasko inklusive', desc: 'Jede Miete beinhaltet eine umfassende Versicherung — ganz ohne Selbstbehalt.' }
 ];
 
+/* Nur belegbare Fakten — die neue Firma hat noch keine Vermietungszahlen
+   oder Bewertungen. */
 const stats = [
-  { icon: 'clock',        v: '24/7',   l: 'Verfügbarkeit' },
-  { icon: 'truck',        v: '30 km',  l: 'Gratis-Lieferung' },
-  { icon: 'shield-check', v: 'CHF 0',  l: 'Selbstbehalt' },
-  { icon: 'star',         v: '4.9★',   l: 'Google Bewertung' }
+  { icon: 'arrow-up-down', v: '2.40 m', l: 'Innenhöhe Möbelkoffer' },
+  { icon: 'shield-check',  v: 'CHF 0',  l: 'Selbstbehalt' },
+  { icon: 'truck',         v: '4',      l: 'Fahrzeuge im Fuhrpark' }
 ];
 
 const useCases = [
@@ -56,9 +56,8 @@ const useCases = [
 const faq = [
   { q: 'Welchen Führerausweis brauche ich?', a: 'Für alle unsere Lieferwagen bis 3.5 t genügt der Führerausweis der Kategorie B.' },
   { q: 'Ist eine Kaution erforderlich?', a: 'Ja, bei der Abholung wird eine Kaution hinterlegt und nach der Rückgabe vollständig zurückerstattet.' },
-  { q: 'Was ist im Mietpreis enthalten?', a: 'Vollkasko ohne Selbstbehalt, unbegrenzte Kilometer innerhalb der Schweiz sowie 24/7-Zugang zum Fahrzeug.' },
-  { q: 'Liefert ihr das Fahrzeug?', a: 'Im Umkreis von 30 km bringen wir den Lieferwagen kostenlos zu Ihnen — gegen Aufpreis auch darüber hinaus.' },
-  { q: 'Wie sind die Öffnungszeiten?', a: 'Dank digitalem Schlüsselsystem können Sie rund um die Uhr abholen und zurückgeben — 365 Tage im Jahr.' }
+  { q: 'Was ist im Mietpreis enthalten?', a: 'Vollkasko ohne Selbstbehalt sowie unbegrenzte Kilometer innerhalb der Schweiz.' },
+  { q: 'Wann kann ich abholen und zurückgeben?', a: 'Abholung und Rückgabe vereinbaren wir individuell mit Ihnen — melden Sie sich einfach mit Ihrem Wunschtermin.' }
 ];
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
