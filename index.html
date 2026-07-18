@@ -39,35 +39,12 @@
 }
 </script>
 </head>
-<body>
+<body data-page="home">
 
 <a class="skip-link" href="#fleet">Zum Inhalt springen</a>
 
-<header class="site-header">
-  <nav class="nav container" aria-label="Hauptnavigation">
-    <a class="brand" href="#top">
-      <span class="brand__mark" aria-hidden="true">4A</span>
-      <span class="brand__text">
-        <span class="brand__name">4A Lieferwagen</span>
-        <span class="brand__eyebrow">Winterthur</span>
-      </span>
-    </a>
-
-    <button class="nav__burger" type="button" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
-      <i data-lucide="menu"></i>
-    </button>
-
-    <div class="nav__menu" id="navMenu">
-      <ul class="nav__links">
-        <li><a href="#fleet">Fuhrpark</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <div class="nav__actions">
-        <a class="btn btn--primary btn--glow" href="#top">Verfügbarkeit prüfen</a>
-      </div>
-    </div>
-  </nav>
-</header>
+<!-- Header wird gemeinsam von assets/js/main.js gerendert (renderChrome) -->
+<header id="siteHeader"></header>
 
 <main>
 
@@ -229,7 +206,7 @@
             </div>
           </div>
 
-          <p class="lead-form__error" id="sellError" role="alert" hidden></p>
+          <p class="lead-form__error" id="sellFormError" role="alert" hidden></p>
 
           <button class="btn btn--primary btn--block" type="submit">Bewertung anfordern <i data-lucide="arrow-right"></i></button>
 
@@ -240,11 +217,11 @@
           </ul>
         </div>
 
-        <div class="lead-form__success" id="sellSuccess" hidden>
+        <div class="lead-form__success" id="sellFormSuccess" hidden>
           <div class="lead-form__check" aria-hidden="true"><i data-lucide="check-circle-2"></i></div>
           <h3>Anfrage erhalten!</h3>
           <p>Danke! Wir bewerten Ihr Fahrzeug und melden uns innert 24 Stunden bei Ihnen.</p>
-          <button class="btn btn--ghost" type="button" id="sellReset">Neue Anfrage</button>
+          <button class="btn btn--ghost" type="button" id="sellFormReset">Neue Anfrage</button>
         </div>
       </form>
     </div>
@@ -305,54 +282,8 @@
 
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <a class="brand brand--light" href="#top">
-          <span class="brand__mark" aria-hidden="true">4A</span>
-          <span class="brand__name">4A Lieferwagen</span>
-        </a>
-        <p class="footer__about">Lieferwagen mieten in Winterthur — flexibel, fair und unkompliziert. Für Privat und Gewerbe.</p>
-      </div>
-
-      <div>
-        <h3>Fahrzeuge</h3>
-        <ul>
-          <li><a href="#fleet">Mercedes Sprinter 316 CDI</a></li>
-          <li><a href="#fleet">Möbelkoffer, 2.40 m Innenhöhe</a></li>
-          <li><a href="#fleet">Mit Flügeltüren</a></li>
-          <li><a href="#fleet">Vier Fahrzeuge verfügbar</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Einsatzzwecke</h3>
-        <ul>
-          <li><a href="#usecases">Umzug</a></li>
-          <li><a href="#usecases">Möbeltransport</a></li>
-          <li><a href="#usecases">Firmenlieferung</a></li>
-          <li><a href="#usecases">Veranstaltungen</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Unternehmen</h3>
-        <ul>
-          <li><a href="#benefits">Über uns</a></li>
-          <li><a href="#location">Standort Winterthur</a></li>
-          <li><a href="#sell">Fahrzeug verkaufen</a></li>
-          <li><a href="mailto:info@4a-lieferwagen.ch">Kontakt</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <p>© 2026 4A Lieferwagen · Winterthur</p>
-      <p>Made in Switzerland</p>
-    </div>
-  </div>
-</footer>
+<!-- Footer wird gemeinsam von assets/js/main.js gerendert (renderChrome) -->
+<footer id="siteFooter"></footer>
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 <script src="assets/js/main.js" defer></script>

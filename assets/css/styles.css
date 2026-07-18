@@ -1035,19 +1035,8 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
    ========================================================= */
 
 @media (max-width: 1080px) {
-  /* Navigation wird eng: Links und CTAs kompakter setzen */
-  .nav__links a { padding: 8px 9px; font-size: 13.5px; }
-  .btn--outline { padding: 10px 14px; font-size: 12.5px; }
-
-  .benefits { grid-template-columns: repeat(2, 1fr); }
-  .sell { grid-template-columns: 1fr; gap: 36px; }
-  .lead-form { max-width: 520px; }
-}
-
-@media (max-width: 900px) {
-  :root { --section-y: 64px; }
-
-  /* Navigation → Burger */
+  /* Navigation → Burger: sechs Menüpunkte + CTA passen ab hier nicht mehr
+     in eine Zeile, darum kollabiert die Nav schon unter 1081px. */
   .nav__burger { display: inline-flex; }
   .nav__menu {
     display: none;
@@ -1065,8 +1054,17 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
   .nav__menu.is-open { display: flex; }
   .nav__links { flex-direction: column; gap: 2px; }
   .nav__links a { padding: 12px; font-size: 15px; }
+  .nav__links a[aria-current="page"] { background: rgba(124, 77, 255, .08); }
   .nav__actions { flex-direction: column; align-items: stretch; }
   .nav__actions .btn { width: 100%; }
+
+  .benefits { grid-template-columns: repeat(2, 1fr); }
+  .sell { grid-template-columns: 1fr; gap: 36px; }
+  .lead-form { max-width: 520px; }
+}
+
+@media (max-width: 900px) {
+  :root { --section-y: 64px; }
 
   .hero__inner { padding-top: 48px; }
   .hero__title { font-size: 40px; }
@@ -1121,4 +1119,262 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
     transition-duration: .001ms !important;
   }
   .btn:hover, .benefit:hover { transform: none; }
+}
+
+/* =========================================================
+   Scroll-Reveal — sanftes Einblenden beim Reinscrollen.
+   Die .reveal-Klasse setzt JS nur für Elemente unterhalb des ersten
+   Viewports (kein Flash oben) und nur, wenn Motion erlaubt ist.
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.22, .61, .36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* =========================================================
+   Unterseiten (Fuhrpark, Einsatzzwecke, Preise, Verkaufen, FAQ, Kontakt)
+   ========================================================= */
+
+/* Aktiver Navigationspunkt */
+.nav__links a[aria-current="page"] {
+  color: var(--accent-bright);
+  background: rgba(124, 77, 255, .08);
+}
+
+/* Schmaler Seitenkopf statt grossem Hero */
+.page-head {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--hero-1), var(--hero-2) 55%, var(--hero-3));
+  color: #fff;
+  text-align: center;
+}
+.page-head::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(179, 157, 255, .16), transparent 60%);
+}
+.page-head__inner {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 28px;
+}
+.page-head .eyebrow { color: var(--accent-glow); }
+.page-head h1 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin: 0 0 14px;
+}
+.page-head p {
+  font-size: 17px;
+  color: rgba(255, 255, 255, .72);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.page-head__actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+/* Breadcrumb */
+.crumbs {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px var(--container-pad) 0;
+  font-size: 13px;
+  color: var(--fg-3);
+}
+.crumbs a { color: var(--fg-3); }
+.crumbs a:hover { color: var(--accent-bright); }
+.crumbs span { color: var(--fg-4); }
+
+/* Einsatzzwecke — Detailkarten */
+.usecase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.usecase {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-tile);
+  padding: 26px;
+  box-shadow: var(--shadow-rest);
+  transition: box-shadow .22s ease, transform .22s ease;
+}
+.usecase:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+.usecase__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: rgba(124, 77, 255, .1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-bright);
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.usecase h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; }
+.usecase p { font-size: 13.5px; color: var(--fg-3); line-height: 1.55; margin: 0; }
+
+/* Preise */
+.price-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.price-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  padding: 32px;
+  box-shadow: var(--shadow-rest);
+  background: #fff;
+}
+.price-card--highlight {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--accent-deep) 60%, var(--accent-bright));
+  box-shadow: var(--shadow-cta);
+}
+.price-card__label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .85;
+  margin: 0 0 10px;
+}
+.price-card__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 6px;
+}
+.price-card__amount b { font-size: 52px; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
+.price-card__amount small { font-size: 16px; font-weight: 600; opacity: .8; }
+.price-card__note { font-size: 14px; opacity: .8; margin: 0 0 22px; line-height: 1.5; }
+.price-card--highlight .btn--white { width: 100%; }
+
+.price-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.price-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+  color: var(--fg-2);
+  line-height: 1.5;
+}
+.price-list i, .price-list svg.lucide { font-size: 18px; color: var(--success); flex: none; margin-top: 1px; }
+.price-card h2 { font-size: 22px; font-weight: 800; margin: 0 0 18px; }
+
+.price-note {
+  margin: 28px auto 0;
+  max-width: 760px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--fg-3);
+  line-height: 1.6;
+}
+
+/* „So funktioniert's" — Schritte */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  counter-reset: step;
+}
+.step {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-tile);
+  padding: 26px;
+  box-shadow: var(--shadow-rest);
+}
+.step__num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(124, 77, 255, .1);
+  color: var(--accent-bright);
+  font-weight: 800;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.step h3 { font-size: 17px; font-weight: 800; margin: 0 0 8px; }
+.step p { font-size: 14px; color: var(--fg-3); line-height: 1.55; margin: 0; }
+
+/* Sektion mit begrenzter Breite für einspaltige Inhalte */
+.section--tight .container { max-width: 900px; }
+
+/* Textarea (Kontaktformular) — an Input-Optik angeglichen, ohne linkes Icon */
+.lead-form textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-input);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--fg-1);
+  background: #fff;
+  outline: 0;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.lead-form textarea:focus {
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 3px rgba(124, 77, 255, .2);
+}
+.lead-form textarea[aria-invalid="true"] { border-color: #DC2626; }
+.lead-form__field--full { margin-bottom: 12px; }
+
+/* Zwei-Spalten-Block (Verkaufen, Kontakt) auf Unterseiten */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 52px;
+  align-items: start;
+}
+.split__copy h2 { font-size: 30px; font-weight: 800; letter-spacing: -.01em; margin: 0 0 16px; }
+.split__copy > p { font-size: 16px; color: var(--fg-2); line-height: 1.6; margin: 0 0 22px; }
+
+@media (max-width: 1080px) {
+  .usecase-grid { grid-template-columns: repeat(2, 1fr); }
+  .price-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; gap: 36px; }
+  .split .lead-form { max-width: 520px; }
+}
+
+@media (max-width: 900px) {
+  .page-head__inner { padding: 44px 24px; }
+  .page-head h1 { font-size: 32px; }
+}
+
+@media (max-width: 560px) {
+  .usecase-grid { grid-template-columns: 1fr; }
+  .price-card { padding: 24px; }
+  .price-card__amount b { font-size: 42px; }
 }

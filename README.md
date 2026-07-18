@@ -1,8 +1,8 @@
 # 4A Lieferwagen — Landingpage
 
-Marketing-Landingpage für **4A Lieferwagen**, eine Lieferwagen-Vermietung in Winterthur
-(Privat- und Geschäftskunden). Ziel der Seite: Besucher zur Fahrzeug-Anfrage führen und
-sekundär Ankauf-Leads sammeln.
+Marketing-Website für **4A Lieferwagen**, eine Lieferwagen-Vermietung in Winterthur
+(Privat- und Geschäftskunden). Ziel: Besucher zur Fahrzeug-Anfrage führen und sekundär
+Ankauf-Leads sammeln.
 
 Umgesetzt als statische Website — kein Build-Schritt, keine Abhängigkeiten ausser zwei CDN-Assets
 (Google Fonts «Montserrat», Lucide Icons).
@@ -21,10 +21,34 @@ python3 -m http.server 4173
 ## Struktur
 
 ```
-index.html              Gesamte Seite (11 Sektionen, semantisches Markup)
+index.html              Startseite / Übersicht (alle Abschnitte auf einer Seite)
+fuhrpark.html           Unterseite Fuhrpark
+einsatzzwecke.html      Unterseite Einsatzzwecke (Gebrauch)
+preise.html             Unterseite Preise
+verkaufen.html          Unterseite Fahrzeug verkaufen (Ankauf-Formular)
+faq.html                Unterseite FAQ
+kontakt.html            Unterseite Kontakt (Adresse, Karte, Kontaktformular)
 assets/css/styles.css   Design-Tokens + Styles, responsive ab 1080/900/560px
-assets/js/main.js       Inhaltsdaten + Interaktion
+assets/js/main.js       Inhaltsdaten, gemeinsames Chrome, Interaktion, Animation
 ```
+
+### Header & Footer nur an einer Stelle
+
+Header und Footer sind auf allen Seiten identisch, weil sie von `renderChrome()` in
+`assets/js/main.js` erzeugt und in die Platzhalter `<header id="siteHeader">` /
+`<footer id="siteFooter">` eingesetzt werden. Navigation ändern: nur die `NAV`- bzw.
+`FOOTER_COLS`-Liste in `main.js` anpassen — gilt sofort für alle Seiten. Die aktive Seite
+ergibt sich aus `<body data-page="…">`.
+
+Jede Unterseite lädt dieselbe `styles.css` und `main.js`; die Renderer/Interaktionen laufen
+nur, wenn der passende Container (z. B. `#fleetList`, `#faqList`, `#sellForm`) vorhanden ist.
+
+## Animation
+
+Inhaltsblöcke unterhalb des ersten Viewports blenden beim Reinscrollen sanft ein
+(`initReveal()` via IntersectionObserver). Bereits sichtbare Elemente werden nicht versteckt
+(kein Flash), und bei `prefers-reduced-motion: reduce` ist der Effekt aus. Dauer-Animationen
+(Verlauf im CTA-Banner, pulsierende CTAs) laufen wie bisher.
 
 ## Inhalte pflegen
 
