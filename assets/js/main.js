@@ -107,7 +107,7 @@ function renderChrome() {
   ).join('');
 
   const header = document.getElementById('siteHeader');
-  if (header) {
+  if (header && !header.children.length) {
     header.className = 'site-header';
     header.innerHTML = `
       <nav class="nav container" aria-label="Hauptnavigation">
@@ -131,7 +131,7 @@ function renderChrome() {
   }
 
   const footer = document.getElementById('siteFooter');
-  if (footer) {
+  if (footer && !footer.children.length) {
     footer.className = 'footer';
     const cols = FOOTER_COLS.map((c) => `
       <div>
@@ -163,6 +163,9 @@ function renderChrome() {
 function renderFleet() {
   const el = document.getElementById('fleetList');
   if (!el) return;
+  // Inhalt steht seit dem Prerender bereits im HTML (tools/prerender.mjs).
+  // Nur rendern, wenn der Container wirklich leer ist.
+  if (el.children.length) return;
   el.innerHTML = fleet.map((v) => `
     <article class="vehicle">
       <div class="vehicle__media photo" data-photo="Foto ${esc(v.name)}">
@@ -195,6 +198,9 @@ function renderFleet() {
 function renderBenefits() {
   const el = document.getElementById('benefitList');
   if (!el) return;
+  // Inhalt steht seit dem Prerender bereits im HTML (tools/prerender.mjs).
+  // Nur rendern, wenn der Container wirklich leer ist.
+  if (el.children.length) return;
   el.innerHTML = benefits.map((b) => `
     <article class="benefit">
       <div class="benefit__icon"><i data-lucide="${esc(b.icon)}" aria-hidden="true"></i></div>
@@ -207,6 +213,9 @@ function renderBenefits() {
 function renderStats() {
   const el = document.getElementById('statList');
   if (!el) return;
+  // Inhalt steht seit dem Prerender bereits im HTML (tools/prerender.mjs).
+  // Nur rendern, wenn der Container wirklich leer ist.
+  if (el.children.length) return;
   el.innerHTML = stats.map((s) => `
     <div class="stat">
       <span class="stat__icon"><i data-lucide="${esc(s.icon)}" aria-hidden="true"></i></span>
@@ -220,13 +229,13 @@ function renderStats() {
    je nach Container. */
 function renderUseCases() {
   const pills = document.getElementById('usecaseList');
-  if (pills) {
+  if (pills && !pills.children.length) {
     pills.innerHTML = useCases.map((u) => `
       <li><i data-lucide="${esc(u.icon)}" aria-hidden="true"></i>${esc(u.title)}</li>
     `).join('');
   }
   const cards = document.getElementById('usecaseCards');
-  if (cards) {
+  if (cards && !cards.children.length) {
     cards.innerHTML = useCases.map((u) => `
       <article class="usecase">
         <div class="usecase__icon"><i data-lucide="${esc(u.icon)}" aria-hidden="true"></i></div>
@@ -240,6 +249,9 @@ function renderUseCases() {
 function renderFaq() {
   const el = document.getElementById('faqList');
   if (!el) return;
+  // Inhalt steht seit dem Prerender bereits im HTML (tools/prerender.mjs).
+  // Nur rendern, wenn der Container wirklich leer ist.
+  if (el.children.length) return;
   el.innerHTML = faq.map((it, i) => `
     <div class="faq__item">
       <h3 style="margin:0">

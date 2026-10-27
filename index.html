@@ -6,7 +6,10 @@
 <title>4A Lieferwagen — Lieferwagen mieten in Winterthur | ab CHF 150/Tag</title>
 <meta name="description" content="Lieferwagen mieten in Winterthur: Mercedes Sprinter 316 CDI mit Möbelkoffer und 2.40 m Innenhöhe, ab CHF 150 pro Tag. Vollkasko ohne Selbstbehalt, Abholung nach Vereinbarung.">
 <meta name="theme-color" content="#262457">
-<link rel="canonical" href="https://worksmtechswiss-hub.github.io/4a-lieferwagen/">
+<meta property="og:url" content="https://www.4a-lieferwagen.ch/">
+<meta property="og:image" content="https://www.4a-lieferwagen.ch/assets/img/slml.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.4a-lieferwagen.ch/">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_CH">
@@ -21,21 +24,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 
-<script type="application/ld+json">
+<script type="application/ld+json" data-ld="betrieb">
 {
   "@context": "https://schema.org",
   "@type": "AutoRental",
+  "@id": "https://www.4a-lieferwagen.ch/#betrieb",
   "name": "4A Lieferwagen",
-  "description": "Lieferwagenvermietung in Winterthur für Privat- und Geschäftskunden.",
+  "url": "https://www.4a-lieferwagen.ch/",
+  "description": "Lieferwagenvermietung in Winterthur für Privat- und Geschäftskunden. Mercedes Sprinter 316 CDI mit Möbelkoffer, 2.40 m Innenhöhe, Vollkasko ohne Selbstbehalt.",
   "email": "info@4a-lieferwagen.ch",
+  "image": "https://www.4a-lieferwagen.ch/assets/img/slml.webp",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "St. Gallerstrasse 182",
     "postalCode": "8404",
     "addressLocality": "Winterthur",
+    "addressRegion": "ZH",
     "addressCountry": "CH"
   },
-  "priceRange": "ab CHF 150 pro Tag"
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Winterthur"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Kanton Zürich"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Kanton Thurgau"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Kanton St. Gallen"
+    }
+  ],
+  "priceRange": "ab CHF 150 pro Tag",
+  "currenciesAccepted": "CHF",
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Lieferwagenmiete pro Tag",
+    "priceCurrency": "CHF",
+    "price": "150",
+    "availability": "https://schema.org/InStock",
+    "itemOffered": {
+      "@type": "Product",
+      "name": "Mercedes Sprinter 316 CDI mit Möbelkoffer",
+      "category": "Lieferwagen",
+      "description": "Möbelkoffer mit Flügeltüren und 2.40 m Innenhöhe, Rückfahrkamera, Anhängerkupplung."
+    }
+  }
 }
 </script>
 </head>
@@ -44,7 +83,25 @@
 <a class="skip-link" href="#fleet">Zum Inhalt springen</a>
 
 <!-- Header wird gemeinsam von assets/js/main.js gerendert (renderChrome) -->
-<header id="siteHeader"></header>
+<header id="siteHeader" class="site-header">
+      <nav class="nav container" aria-label="Hauptnavigation">
+        <a class="brand" href="#top">
+          <span class="brand__mark" aria-hidden="true">4A</span>
+          <span class="brand__text">
+            <span class="brand__name">4A Lieferwagen</span>
+            <span class="brand__eyebrow">Winterthur</span>
+          </span>
+        </a>
+        <button class="nav__burger" type="button" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Menü öffnen">
+          <i data-lucide="menu"></i>
+        </button>
+        <div class="nav__menu" id="navMenu">
+          <ul class="nav__links"><li><a href="fuhrpark.html">Fuhrpark</a></li><li><a href="einsatzzwecke.html">Einsatzzwecke</a></li><li><a href="preise.html">Preise</a></li><li><a href="verkaufen.html">Fahrzeug verkaufen</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+          <div class="nav__actions">
+            <a class="btn btn--primary btn--glow" href="#top">Verfügbarkeit prüfen</a>
+          </div>
+        </div>
+      </nav></header>
 
 <main>
 
@@ -101,7 +158,33 @@
         <p class="section__lead">Alle vier Fahrzeuge sind baugleich, gewartet und vollkasko-versichert.</p>
       </header>
 
-      <div class="fleet" id="fleetList"></div>
+      <div class="fleet" id="fleetList">
+    <article class="vehicle">
+      <div class="vehicle__media photo" data-photo="Foto Mercedes Sprinter 316 CDI">
+        <img src="assets/img/slml.webp" alt="Mercedes Sprinter 316 CDI mit Möbelkoffer-Aufbau" loading="lazy" onerror="this.remove()">
+        <span class="vehicle__class">Möbelkoffer</span>
+      </div>
+      <div class="vehicle__body">
+        <div class="vehicle__top">
+          <div>
+            <h3 class="vehicle__name">Mercedes Sprinter 316 CDI</h3>
+            <p class="vehicle__best">Möbelkoffer mit Flügeltüren und 2.40 m Innenhöhe — ab Werk sind die Aufbauten tiefer. So transportieren Sie Schränke stehend.</p>
+          </div>
+          <p class="vehicle__price">
+            <small>ab</small> <b>CHF 150</b>
+            <span>pro Tag</span>
+          </p>
+        </div>
+        <ul class="vehicle__specs">
+          <li><i data-lucide="arrow-up-down" aria-hidden="true"></i>2.40 m Innenhöhe</li><li><i data-lucide="door-open" aria-hidden="true"></i>Flügeltüren</li><li><i data-lucide="video" aria-hidden="true"></i>Rückfahrkamera</li><li><i data-lucide="link" aria-hidden="true"></i>Anhängerkupplung</li><li><i data-lucide="settings" aria-hidden="true"></i>Handschaltung</li>
+        </ul>
+        <div class="vehicle__actions">
+          <a class="btn btn--primary" href="#top">Jetzt anfragen <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          <p class="vehicle__stock"><i data-lucide="check-circle-2" aria-hidden="true"></i>4 Fahrzeuge verfügbar</p>
+        </div>
+      </div>
+    </article>
+  </div>
     </div>
   </section>
 
@@ -114,13 +197,49 @@
         <p class="section__lead">Erstklassige Fahrzeuge zu fairen Preisen — mit einem Service, der seinesgleichen sucht.</p>
       </header>
 
-      <div class="benefits" id="benefitList"></div>
+      <div class="benefits" id="benefitList">
+    <article class="benefit">
+      <div class="benefit__icon"><i data-lucide="clock" aria-hidden="true"></i></div>
+      <h3>Flexible Zeiten</h3>
+      <p>Abholung und Rückgabe vereinbaren wir individuell — abgestimmt auf Ihre Termine.</p>
+    </article>
+  
+    <article class="benefit">
+      <div class="benefit__icon"><i data-lucide="receipt" aria-hidden="true"></i></div>
+      <h3>Transparente Preise</h3>
+      <p>Keine versteckten Kosten. Sie wissen von Anfang an genau, was Sie zahlen.</p>
+    </article>
+  
+    <article class="benefit">
+      <div class="benefit__icon"><i data-lucide="shield-check" aria-hidden="true"></i></div>
+      <h3>Vollkasko inklusive</h3>
+      <p>Jede Miete beinhaltet eine umfassende Versicherung — ganz ohne Selbstbehalt.</p>
+    </article>
+  </div>
     </div>
   </section>
 
   <!-- Stats -->
   <section class="stats">
-    <div class="container stats__grid" id="statList"></div>
+    <div class="container stats__grid" id="statList">
+    <div class="stat">
+      <span class="stat__icon"><i data-lucide="arrow-up-down" aria-hidden="true"></i></span>
+      <p class="stat__value">2.40 m</p>
+      <p class="stat__label">Innenhöhe Möbelkoffer</p>
+    </div>
+  
+    <div class="stat">
+      <span class="stat__icon"><i data-lucide="shield-check" aria-hidden="true"></i></span>
+      <p class="stat__value">CHF 0</p>
+      <p class="stat__label">Selbstbehalt</p>
+    </div>
+  
+    <div class="stat">
+      <span class="stat__icon"><i data-lucide="truck" aria-hidden="true"></i></span>
+      <p class="stat__value">4</p>
+      <p class="stat__label">Fahrzeuge im Fuhrpark</p>
+    </div>
+  </div>
   </section>
 
   <!-- Einsatzzwecke -->
@@ -132,7 +251,27 @@
         <p class="section__lead">Von der Zügelkiste bis zum Marktstand — 4A bringt alles ans Ziel.</p>
       </header>
 
-      <ul class="usecases" id="usecaseList"></ul>
+      <ul class="usecases" id="usecaseList">
+      <li><i data-lucide="truck" aria-hidden="true"></i>Umzüge</li>
+    
+      <li><i data-lucide="sofa" aria-hidden="true"></i>Möbeltransport</li>
+    
+      <li><i data-lucide="building-2" aria-hidden="true"></i>Firmenlieferungen</li>
+    
+      <li><i data-lucide="shopping-cart" aria-hidden="true"></i>Grosseinkäufe</li>
+    
+      <li><i data-lucide="party-popper" aria-hidden="true"></i>Veranstaltungen</li>
+    
+      <li><i data-lucide="hammer" aria-hidden="true"></i>Handwerker</li>
+    
+      <li><i data-lucide="store" aria-hidden="true"></i>Marktbeschicker</li>
+    
+      <li><i data-lucide="graduation-cap" aria-hidden="true"></i>Studenten</li>
+    
+      <li><i data-lucide="package" aria-hidden="true"></i>Sperrige Güter</li>
+    
+      <li><i data-lucide="route" aria-hidden="true"></i>Fernumzüge</li>
+    </ul>
     </div>
   </section>
 
@@ -231,7 +370,79 @@
   <section class="section" id="faq">
     <div class="container container--narrow">
       <h2 class="faq__title">Häufige Fragen</h2>
-      <div class="faq" id="faqList"></div>
+      <div class="faq" id="faqList">
+    <div class="faq__item">
+      <h3 style="margin:0">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-0" id="faq-q-0">
+          <span>Welchen Führerausweis brauche ich?</span>
+          <span class="faq__chevron"><i data-lucide="chevron-down" aria-hidden="true"></i></span>
+        </button>
+      </h3>
+      <div class="faq__a" id="faq-a-0" role="region" aria-labelledby="faq-q-0">
+        <p>Für alle unsere Lieferwagen bis 3.5 t genügt der Führerausweis der Kategorie B.</p>
+      </div>
+    </div>
+  
+    <div class="faq__item">
+      <h3 style="margin:0">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+          <span>Ist eine Kaution erforderlich?</span>
+          <span class="faq__chevron"><i data-lucide="chevron-down" aria-hidden="true"></i></span>
+        </button>
+      </h3>
+      <div class="faq__a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
+        <p>Ja, bei der Abholung wird eine Kaution hinterlegt und nach der Rückgabe vollständig zurückerstattet.</p>
+      </div>
+    </div>
+  
+    <div class="faq__item">
+      <h3 style="margin:0">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+          <span>Was ist im Mietpreis enthalten?</span>
+          <span class="faq__chevron"><i data-lucide="chevron-down" aria-hidden="true"></i></span>
+        </button>
+      </h3>
+      <div class="faq__a" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
+        <p>Vollkasko ohne Selbstbehalt sowie unbegrenzte Kilometer innerhalb der Schweiz.</p>
+      </div>
+    </div>
+  
+    <div class="faq__item">
+      <h3 style="margin:0">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+          <span>Wann kann ich abholen und zurückgeben?</span>
+          <span class="faq__chevron"><i data-lucide="chevron-down" aria-hidden="true"></i></span>
+        </button>
+      </h3>
+      <div class="faq__a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
+        <p>Abholung und Rückgabe vereinbaren wir individuell mit Ihnen — melden Sie sich einfach mit Ihrem Wunschtermin.</p>
+      </div>
+    </div>
+  
+    <div class="faq__item">
+      <h3 style="margin:0">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+          <span>Wie viel kostet die Miete?</span>
+          <span class="faq__chevron"><i data-lucide="chevron-down" aria-hidden="true"></i></span>
+        </button>
+      </h3>
+      <div class="faq__a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
+        <p>Die Tagesmiete beginnt bei CHF 150 inklusive Vollkasko ohne Selbstbehalt. Für Ihren konkreten Zeitraum erstellen wir Ihnen gerne eine unverbindliche Offerte.</p>
+      </div>
+    </div>
+  
+    <div class="faq__item">
+      <h3 style="margin:0">
+        <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
+          <span>Kann ich Möbel stehend transportieren?</span>
+          <span class="faq__chevron"><i data-lucide="chevron-down" aria-hidden="true"></i></span>
+        </button>
+      </h3>
+      <div class="faq__a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
+        <p>Ja. Der Möbelkoffer bietet 2.40 m Innenhöhe — die Aufbauten sind ab Werk tiefer, sodass auch hohe Schränke aufrecht Platz finden.</p>
+      </div>
+    </div>
+  </div>
     </div>
   </section>
 
@@ -283,7 +494,35 @@
 </main>
 
 <!-- Footer wird gemeinsam von assets/js/main.js gerendert (renderChrome) -->
-<footer id="siteFooter"></footer>
+<footer id="siteFooter" class="footer">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <a class="brand brand--light" href="#top">
+              <span class="brand__mark" aria-hidden="true">4A</span>
+              <span class="brand__name">4A Lieferwagen</span>
+            </a>
+            <p class="footer__about">Lieferwagen mieten in Winterthur — flexibel, fair und unkompliziert. Für Privat und Gewerbe.</p>
+          </div>
+          
+      <div>
+        <h3>Angebot</h3>
+        <ul><li><a href="fuhrpark.html">Fuhrpark</a></li><li><a href="preise.html">Preise</a></li><li><a href="einsatzzwecke.html">Einsatzzwecke</a></li></ul>
+      </div>
+      <div>
+        <h3>Service</h3>
+        <ul><li><a href="verkaufen.html">Fahrzeug verkaufen</a></li><li><a href="faq.html">Häufige Fragen</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+      </div>
+      <div>
+        <h3>Standort</h3>
+        <ul><li><a href="kontakt.html">St. Gallerstrasse 182</a></li><li><a href="kontakt.html">8404 Winterthur</a></li><li><a href="mailto:info@4a-lieferwagen.ch">info@4a-lieferwagen.ch</a></li></ul>
+      </div>
+        </div>
+        <div class="footer__bottom">
+          <p>© 2026 4A Lieferwagen · Winterthur</p>
+          <p>Made in Switzerland</p>
+        </div>
+      </div></footer>
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 <script src="assets/js/main.js" defer></script>
