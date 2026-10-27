@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://4a-lieferwagen.ch/</loc><lastmod>2026-10-27</lastmod><priority>1.0</priority></url>
-  <url><loc>https://4a-lieferwagen.ch/fuhrpark.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
-  <url><loc>https://4a-lieferwagen.ch/einsatzzwecke.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
-  <url><loc>https://4a-lieferwagen.ch/preise.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
-  <url><loc>https://4a-lieferwagen.ch/verkaufen.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
-  <url><loc>https://4a-lieferwagen.ch/faq.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
-  <url><loc>https://4a-lieferwagen.ch/kontakt.html</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://4a-lieferwagen.ch/fuhrpark</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://4a-lieferwagen.ch/einsatzzwecke</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://4a-lieferwagen.ch/preise</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://4a-lieferwagen.ch/verkaufen</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://4a-lieferwagen.ch/faq</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
+  <url><loc>https://4a-lieferwagen.ch/kontakt</loc><lastmod>2026-10-27</lastmod><priority>0.8</priority></url>
 </urlset>
