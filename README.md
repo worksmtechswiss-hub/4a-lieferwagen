@@ -47,6 +47,8 @@ datenschutz.html        Datenschutzerklärung (DSG, GA4 mit Widerspruch)
 assets/css/styles.css   Design-Tokens + Styles, responsive ab 1080/900/560px
 assets/js/main.js       Inhaltsdaten, Header/Footer, Formulare, Interaktion
 assets/js/ga.js         Google Analytics 4 + Widerspruch (Opt-out)
+ratgeber.html           Ratgeber-Übersicht (+ ratgeber-*.html, erzeugt)
+tools/build-ratgeber.mjs baut den Ratgeber aus tools/ratgeber/*.mjs
 tools/prerender.mjs     schreibt die von main.js erzeugten Inhalte fest ins HTML
 ```
 
@@ -88,6 +90,22 @@ Formspree. Endpunkt: Konstante `FORMSPREE_ENDPOINT` in `assets/js/main.js` (`htt
   `abholung`/`rueckgabe` vor.
 - Nach dem Eintragen des Endpunkts: im SEO-Dashboard die Formspree-Formular-ID für den
   Webhook ergänzen und einen Test-Lead schicken — und ihn danach wieder löschen.
+
+## Ratgeber
+
+Sechs Artikel (ein Artikel pro Monat, Juni–November 2026) plus Übersicht `ratgeber.html`.
+Quelle der Inhalte: `tools/ratgeber/*.mjs` (Titel, Datum, Lead, Text, FAQ, verwandte Artikel).
+Daraus erzeugt `tools/build-ratgeber.mjs` die Seiten `ratgeber-<slug>.html`, die Übersicht
+und den Ratgeber-Block in `sitemap.xml` (JSON-LD: BlogPosting, FAQPage, BreadcrumbList).
+
+```bash
+node tools/build-ratgeber.mjs && node tools/prerender.mjs
+```
+
+Titelbilder: `assets/img/ratgeber/<slug>.webp` (1200×675, 16:9). Fehlt ein Bild, zeigt die
+Seite einen Farbverlauf mit Bildbeschreibung. In den Artikeln keine Preise, Kautionen oder
+Fahrzeugdaten, die nicht auf der Website bestätigt sind. Rechtliche Angaben stützen sich auf
+SVG/VRV und die Stadt Winterthur — vor Änderungen erneut prüfen. `llms.txt` listet alle Seiten.
 
 ## Analytics und Datenschutz
 
