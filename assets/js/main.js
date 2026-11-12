@@ -65,6 +65,18 @@ const faq = [
   { q: 'Kann ich Möbel stehend transportieren?', a: 'Ja. Der Möbelkoffer bietet 2.40 m Innenhöhe — die Aufbauten sind ab Werk tiefer, sodass auch hohe Schränke aufrecht Platz finden.' }
 ];
 
+/* Kontakt. Betreiber ist die Gerber Transport GmbH (siehe impressum.html). */
+const CONTACT = {
+  phone: '044 240 41 42',
+  tel: '+41442404142',
+  email: 'info@4a-lieferwagen.ch'
+};
+
+/* Formspree-Formular (Pro-Konto). Leer = noch nicht verbunden: Die Formulare
+   oeffnen dann das E-Mail-Programm mit der fertig ausgefuellten Anfrage,
+   statt eine Erfolgsmeldung vorzutaeuschen. Format: 'https://formspree.io/f/xxxxxxxx' */
+const FORMSPREE_ENDPOINT = '';
+
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 /* ---------- Gemeinsames Chrome: Header & Footer ---------- */
@@ -92,8 +104,14 @@ const FOOTER_COLS = [
   { title: 'Standort', links: [
     { label: 'St. Gallerstrasse 182', href: 'kontakt.html' },
     { label: '8404 Winterthur', href: 'kontakt.html' },
-    { label: 'info@4a-lieferwagen.ch', href: 'mailto:info@4a-lieferwagen.ch' }
+    { label: CONTACT.phone, href: 'tel:' + CONTACT.tel },
+    { label: CONTACT.email, href: 'mailto:' + CONTACT.email }
   ] }
+];
+
+const LEGAL = [
+  { label: 'Impressum', href: 'impressum.html' },
+  { label: 'Datenschutz', href: 'datenschutz.html' }
 ];
 
 function renderChrome() {
@@ -124,6 +142,7 @@ function renderChrome() {
         <div class="nav__menu" id="navMenu">
           <ul class="nav__links">${links}</ul>
           <div class="nav__actions">
+            <a class="nav__phone" href="tel:${CONTACT.tel}"><i data-lucide="phone" aria-hidden="true"></i>${esc(CONTACT.phone)}</a>
             <a class="btn btn--primary btn--glow" href="${cta}">Verfügbarkeit prüfen</a>
           </div>
         </div>
@@ -151,8 +170,8 @@ function renderChrome() {
           ${cols}
         </div>
         <div class="footer__bottom">
-          <p>© 2026 4A Lieferwagen · Winterthur</p>
-          <p>Made in Switzerland</p>
+          <p>© 2026 4A Lieferwagen · eine Marke der Gerber Transport GmbH, Winterthur</p>
+          <p class="footer__legal">${LEGAL.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`).join(' · ')}</p>
         </div>
       </div>`;
   }
@@ -352,17 +371,19 @@ function initSearch() {
     if (!ret.value) return fail('Bitte ein Rückgabedatum wählen.', ret);
     if (ret.value < pickup.value) return fail('Die Rückgabe muss nach der Abholung liegen.', ret);
 
-    // Produktion: hier die Verfügbarkeits-API abfragen und Resultate anzeigen.
-    const target = document.getElementById('fleet');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    // Kein Buchungssystem: die Wunschdaten gehen als Anfrage ans Kontaktformular.
+    window.location.href = 'kontakt.html?von=' + encodeURIComponent(pickup.value) + '&bis=' + encodeURIComponent(ret.value) + '#anfrage';
   });
 }
 
-/* Lead-/Kontaktformular: Validierung → Erfolgs-Panel.
+/* Lead-/Kontaktformular: Validierung → Versand an Formspree → Erfolgs-Panel.
    Konvention: zu Formular-Id X gehören X+'Body', X+'Success', X+'Error', X+'Reset'.
-   `required` = Liste von Feld-Ids, `msg` = Fehlermeldung bei leeren Pflichtfeldern.
-   Kein Backend: hier gehört später ein fetch-POST an die Lead-/Mail-API hin. */
-function initLeadForm(formId, required, msg) {
+   `required` = Liste von Feld-Ids, `msg` = Fehlermeldung bei leeren Pflichtfeldern,
+   `subject` = Betreff der Benachrichtigung. Das Erfolgs-Panel erscheint erst,
+   wenn Formspree den Eingang bestätigt hat. */
+const fmtDate = (v) => (/^\d{4}-\d{2}-\d{2}$/.test(v) ? v.split('-').reverse().join('.') : '');
+
+function initLeadForm(formId, required, msg, subject) {
   const form = document.getElementById(formId);
   if (!form) return;
   const body = document.getElementById(formId + 'Body');
@@ -370,24 +391,60 @@ function initLeadForm(formId, required, msg) {
   const error = document.getElementById(formId + 'Error');
   const reset = document.getElementById(formId + 'Reset');
   const fields = required.map((id) => document.getElementById(id));
+  const button = form.querySelector('button[type="submit"]');
 
-  form.addEventListener('submit', (e) => {
+  const fail = (text) => { error.textContent = text; error.hidden = false; };
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     error.hidden = true;
     fields.forEach((f) => f.removeAttribute('aria-invalid'));
 
     const empty = fields.find((f) => !f.value.trim());
     if (empty) {
-      error.textContent = msg;
-      error.hidden = false;
+      fail(msg);
       empty.setAttribute('aria-invalid', 'true');
       empty.focus();
       return;
     }
+    const mail = form.querySelector('input[type="email"]');
+    if (mail && mail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())) {
+      fail('Bitte eine gültige E-Mail-Adresse angeben.');
+      mail.setAttribute('aria-invalid', 'true');
+      mail.focus();
+      return;
+    }
+    if (form.querySelector('[name="_gotcha"]')?.value) return; // Spam-Falle
 
-    body.hidden = true;
-    success.hidden = false;
-    success.focus();
+    const data = new FormData(form);
+    data.set('_subject', subject + ' — 4a-lieferwagen.ch');
+    data.set('_source', '4a-lieferwagen.ch');
+    data.set('_form', formId);
+    data.set('_page', location.pathname);
+    if (mail && mail.value.trim()) data.set('_replyto', mail.value.trim());
+
+    if (!FORMSPREE_ENDPOINT) {
+      // Noch kein Formular-Endpunkt: Anfrage im E-Mail-Programm öffnen.
+      const lines = [];
+      data.forEach((v, k) => { if (!k.startsWith('_') && String(v).trim()) lines.push(k + ': ' + v); });
+      location.href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join(String.fromCharCode(10)));
+      fail('Ihr E-Mail-Programm öffnet sich mit der Anfrage. Falls nicht: ' + CONTACT.email + ' oder Telefon ' + CONTACT.phone + '.');
+      return;
+    }
+
+    if (button) button.disabled = true;
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      if (window.gtag) window.gtag('event', 'generate_lead', { form_id: formId, page_path: location.pathname });
+      body.hidden = true;
+      success.hidden = false;
+      success.focus();
+    } catch (err) {
+      fail('Senden fehlgeschlagen. Bitte rufen Sie uns an (' + CONTACT.phone + ') oder schreiben Sie an ' + CONTACT.email + '.');
+    } finally {
+      if (button) button.disabled = false;
+    }
   });
 
   if (reset) {
@@ -397,6 +454,19 @@ function initLeadForm(formId, required, msg) {
       body.hidden = false;
     });
   }
+}
+
+/* Wunschdaten aus der Hero-Suche (kontakt.html?von=…&bis=…) ins Kontaktformular. */
+function prefillFromSearch() {
+  const msg = document.getElementById('contactMessage');
+  if (!msg || !window.URLSearchParams) return;
+  const q = new URLSearchParams(location.search);
+  const von = fmtDate(q.get('von') || ''), bis = fmtDate(q.get('bis') || '');
+  if (!von || !bis) return;
+  const vonEl = document.getElementById('contactFrom'), bisEl = document.getElementById('contactTo');
+  if (vonEl) vonEl.value = von;
+  if (bisEl) bisEl.value = bis;
+  if (!msg.value) msg.value = 'Guten Tag, ich möchte einen Lieferwagen mieten: Abholung am ' + von + ', Rückgabe am ' + bis + '. Ist ein Fahrzeug frei?';
 }
 
 /* Scroll-Reveal: Inhaltsblöcke unterhalb des ersten Viewports blenden beim
@@ -452,7 +522,8 @@ renderFaq();
 initFaq();
 initNav();
 initSearch();
-initLeadForm('sellForm', ['sellName', 'sellPhone', 'sellBrand'], 'Bitte Name, Telefon und Marke ausfüllen.');
-initLeadForm('contactForm', ['contactName', 'contactEmail', 'contactMessage'], 'Bitte Name, E-Mail und Nachricht ausfüllen.');
+initLeadForm('sellForm', ['sellName', 'sellPhone', 'sellBrand'], 'Bitte Name, Telefon und Marke ausfüllen.', 'Fahrzeug-Ankauf');
+initLeadForm('contactForm', ['contactName', 'contactEmail', 'contactMessage'], 'Bitte Name, E-Mail und Nachricht ausfüllen.', 'Mietanfrage');
+prefillFromSearch();
 initReveal();
 drawIcons();
