@@ -99,6 +99,7 @@ const FOOTER_COLS = [
   { title: 'Service', links: [
     { label: 'Fahrzeug verkaufen', href: 'verkaufen.html' },
     { label: 'Häufige Fragen', href: 'faq.html' },
+    { label: 'Ratgeber', href: 'ratgeber.html' },
     { label: 'Kontakt', href: 'kontakt.html' }
   ] },
   { title: 'Standort', links: [

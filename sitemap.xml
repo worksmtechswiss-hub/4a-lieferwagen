@@ -7,4 +7,34 @@
   <url><loc>https://4a-lieferwagen.ch/verkaufen</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://4a-lieferwagen.ch/faq</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://4a-lieferwagen.ch/kontakt</loc><lastmod>2026-11-12</lastmod><priority>0.8</priority></url>
+  <!-- ratgeber:start -->
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber-lieferwagen-uebergabe-rueckgabe</loc>
+    <lastmod>2026-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber-selber-zuegeln-oder-umzugsfirma</loc>
+    <lastmod>2026-10-13</lastmod>
+  </url>
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber-parkplatz-sperren-umzug-winterthur</loc>
+    <lastmod>2026-09-15</lastmod>
+  </url>
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber-ladung-sichern-lieferwagen</loc>
+    <lastmod>2026-08-18</lastmod>
+  </url>
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber-selber-zuegeln-checkliste</loc>
+    <lastmod>2026-07-14</lastmod>
+  </url>
+  <url>
+    <loc>https://4a-lieferwagen.ch/ratgeber-fuehrerausweis-b-lieferwagen</loc>
+    <lastmod>2026-06-16</lastmod>
+  </url>
+  <!-- ratgeber:end -->
 </urlset>

@@ -1405,3 +1405,103 @@ svg.lucide { width: 1em; height: 1em; display: block; stroke-width: 2; flex: non
 .legal p, .legal li { color: var(--fg-2); line-height: 1.7; }
 .legal ul { padding-left: 20px; }
 .legal a { color: var(--accent-bright); }
+
+/* ---------- Ratgeber ---------- */
+.rg-meta { margin-top: 18px; font-size: 13px; opacity: .8; }
+.rg-article { max-width: 780px; }
+.rg-hero {
+  margin: 0 0 32px;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.rg-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rg-summary {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-bright);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-bottom: 36px;
+}
+.rg-summary h2 { font-size: 18px; margin: 0 0 10px; }
+.rg-summary ul { margin: 0; padding-left: 20px; }
+.rg-summary li { color: var(--fg-2); line-height: 1.6; margin: 6px 0; }
+.rg-body h2 { font-size: 24px; margin: 44px 0 12px; line-height: 1.3; }
+.rg-body h3 { font-size: 18px; margin: 28px 0 8px; }
+.rg-body p, .rg-body li { color: var(--fg-2); line-height: 1.75; font-size: 16px; }
+.rg-body ul, .rg-body ol { padding-left: 22px; }
+.rg-body li { margin: 6px 0; }
+.rg-body a, .rg-faq a, .rg-related a { color: var(--accent-bright); }
+.rg-body strong { color: var(--fg-1); }
+.rg-source { font-size: 13px; color: var(--fg-3) !important; margin-top: 28px; }
+.rg-faq { margin-top: 52px; }
+.rg-faq h2 { font-size: 24px; margin-bottom: 12px; }
+.rg-faq details { border-bottom: 1px solid var(--border); padding: 4px 0; }
+.rg-faq summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  padding: 14px 32px 14px 0;
+  position: relative;
+}
+.rg-faq summary::-webkit-details-marker { display: none; }
+.rg-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 10px;
+  font-size: 22px;
+  color: var(--accent-bright);
+}
+.rg-faq details[open] summary::after { content: "–"; }
+.rg-faq details p { color: var(--fg-2); line-height: 1.7; margin: 0 0 16px; }
+.rg-cta {
+  margin-top: 52px;
+  padding: 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--hero-1), var(--hero-2) 55%, var(--hero-3));
+  color: #fff;
+}
+.rg-cta h2 { font-size: 24px; margin: 0 0 8px; color: #fff; }
+.rg-cta p { color: rgba(255, 255, 255, .85); line-height: 1.6; }
+.rg-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 0; }
+.rg-cta .btn--ghost { color: #fff; border-color: rgba(255, 255, 255, .5); }
+.rg-cta .btn--ghost:hover { background: rgba(255, 255, 255, .12); }
+.rg-related { margin-top: 44px; }
+.rg-related h2 { font-size: 20px; margin-bottom: 8px; }
+.rg-related ul { padding-left: 20px; }
+.rg-related li { margin: 8px 0; line-height: 1.5; }
+.rg-note { margin-top: 36px; font-size: 13px; color: var(--fg-3); }
+
+.rg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.rg-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-rest);
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow .2s, transform .2s;
+}
+.rg-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.rg-card__media { aspect-ratio: 16 / 9; overflow: hidden; }
+.rg-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rg-card__body { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 24px; }
+.rg-card__meta { font-size: 12px; color: var(--fg-3); }
+.rg-card__title { font-size: 18px; font-weight: 700; line-height: 1.35; color: var(--fg-1); }
+.rg-card__text { font-size: 14px; color: var(--fg-2); line-height: 1.6; }
+@media (max-width: 900px) { .rg-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .rg-grid { grid-template-columns: 1fr; }
+  .rg-cta { padding: 24px 20px; }
+  .rg-body h2, .rg-faq h2 { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) { .rg-card, .rg-card:hover { transition: none; transform: none; } }
