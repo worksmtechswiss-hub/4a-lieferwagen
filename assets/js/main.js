@@ -75,7 +75,7 @@ const CONTACT = {
 /* Formspree-Formular (Pro-Konto). Leer = noch nicht verbunden: Die Formulare
    oeffnen dann das E-Mail-Programm mit der fertig ausgefuellten Anfrage,
    statt eine Erfolgsmeldung vorzutaeuschen. Format: 'https://formspree.io/f/xxxxxxxx' */
-const FORMSPREE_ENDPOINT = '';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyewybrz';
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 

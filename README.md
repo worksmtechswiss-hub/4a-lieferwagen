@@ -75,7 +75,7 @@ m³, Nutzlast, Länge und Verbrauch fehlen noch** — sobald die Werte vorliegen
 ## Formulare
 
 Kontaktformular (`contactForm`) und Ankauf-Formular (`sellForm`) senden per `fetch` an
-Formspree. Endpunkt: Konstante `FORMSPREE_ENDPOINT` in `assets/js/main.js`.
+Formspree. Endpunkt: Konstante `FORMSPREE_ENDPOINT` in `assets/js/main.js` (`https://formspree.io/f/xyewybrz`, Formular «4a-lieferwagen.ch» im Formspree-Pro-Konto).
 
 - Mitgeschickt werden `_subject`, `_source` (`4a-lieferwagen.ch`, für die Zuordnung im
   Dashboard), `_form`, `_page`, `_replyto` und ein Honeypot `_gotcha`.
