@@ -59,6 +59,7 @@
         <div class="nav__menu" id="navMenu">
           <ul class="nav__links"><li><a href="fuhrpark.html">Fuhrpark</a></li><li><a href="einsatzzwecke.html">Einsatzzwecke</a></li><li><a href="preise.html">Preise</a></li><li><a href="verkaufen.html">Fahrzeug verkaufen</a></li><li><a href="faq.html">FAQ</a></li><li><a href="kontakt.html" aria-current="page">Kontakt</a></li></ul>
           <div class="nav__actions">
+            <a class="nav__phone" href="tel:+41442404142"><i data-lucide="phone" aria-hidden="true"></i>044 240 41 42</a>
             <a class="btn btn--primary btn--glow" href="index.html#top">Verfügbarkeit prüfen</a>
           </div>
         </div>
@@ -91,6 +92,10 @@
             <span><strong>St. Gallerstrasse 182</strong><span>8404 Winterthur</span></span>
           </li>
           <li>
+            <span class="icon-chip" aria-hidden="true"><i data-lucide="phone"></i></span>
+            <span><strong><a href="tel:+41442404142">044 240 41 42</a></strong><span>Anrufen für Verfügbarkeit und Offerte</span></span>
+          </li>
+          <li>
             <span class="icon-chip" aria-hidden="true"><i data-lucide="mail"></i></span>
             <span><strong><a href="mailto:info@4a-lieferwagen.ch">info@4a-lieferwagen.ch</a></strong><span>Antwort innert 24 Stunden</span></span>
           </li>
@@ -111,7 +116,7 @@
     </div>
   </section>
 
-  <section class="section section--alt section--tight">
+  <section class="section section--alt section--tight" id="anfrage">
     <div class="container">
       <header class="section__head">
         <p class="eyebrow">Nachricht senden</p>
@@ -121,6 +126,9 @@
 
       <form class="lead-form" id="contactForm" novalidate style="max-width:640px;margin:0 auto">
         <div class="lead-form__body" id="contactFormBody">
+          <input type="hidden" name="abholung" id="contactFrom">
+          <input type="hidden" name="rueckgabe" id="contactTo">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="lead-form__row">
             <div class="lead-form__field">
               <label for="contactName">Name</label>
@@ -194,16 +202,17 @@
       </div>
       <div>
         <h3>Standort</h3>
-        <ul><li><a href="kontakt.html">St. Gallerstrasse 182</a></li><li><a href="kontakt.html">8404 Winterthur</a></li><li><a href="mailto:info@4a-lieferwagen.ch">info@4a-lieferwagen.ch</a></li></ul>
+        <ul><li><a href="kontakt.html">St. Gallerstrasse 182</a></li><li><a href="kontakt.html">8404 Winterthur</a></li><li><a href="tel:+41442404142">044 240 41 42</a></li><li><a href="mailto:info@4a-lieferwagen.ch">info@4a-lieferwagen.ch</a></li></ul>
       </div>
         </div>
         <div class="footer__bottom">
-          <p>© 2026 4A Lieferwagen · Winterthur</p>
-          <p>Made in Switzerland</p>
+          <p>© 2026 4A Lieferwagen · eine Marke der Gerber Transport GmbH, Winterthur</p>
+          <p class="footer__legal"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
         </div>
       </div></footer>
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<script src="assets/js/ga.js"></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
