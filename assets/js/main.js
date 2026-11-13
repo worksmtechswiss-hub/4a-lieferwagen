@@ -69,7 +69,7 @@ const faq = [
 const CONTACT = {
   phone: '044 240 41 42',
   tel: '+41442404142',
-  email: 'info@4a-lieferwagen.ch'
+  email: 'info@gerber-transport.ch'
 };
 
 /* Formspree-Formular (Pro-Konto). Leer = noch nicht verbunden: Die Formulare

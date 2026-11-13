@@ -14,12 +14,12 @@ Statische Website: kein Build-Schritt, keine Abhängigkeiten ausser drei CDN-Ass
 | Domain | https://4a-lieferwagen.ch/ (ohne www, saubere URLs ohne `.html`) |
 | Betreiberin | **Gerber Transport GmbH**, St. Gallerstrasse 182, CH-8404 Winterthur, UID CHE-223.057.928 — 4A Lieferwagen ist eine Marke davon (Schwesterseite: gerber-transport.ch) |
 | Telefon | 044 240 41 42 (`+41442404142`, gleiche Nummer wie Gerber Transport) |
-| E-Mail | info@4a-lieferwagen.ch |
+| E-Mail | info@gerber-transport.ch |
 | Repo | `worksmtechswiss-hub/4a-lieferwagen`, Branch `main` |
 | Hosting | Netlify, Projekt `4alieferwagen` (Site-ID `d148b47a-6bdf-443c-ae94-6a6848c11b24`), Deploy automatisch bei Push auf `main` |
 | Analytics | GA4 `G-HS18XFXVM7` (Property 563736788, Konto «SM Tech Kunden»), im SEO-Dashboard zugeordnet |
 | Search Console | Domain-Property `sc-domain:4a-lieferwagen.ch` — dem Dashboard-Konto fehlt noch die Berechtigung |
-| Formulare | Formspree (Pro-Konto) → E-Mail + Form Leads im SEO-Dashboard (`_source = 4a-lieferwagen.ch`) |
+| Formulare | Formspree (Pro-Konto) → E-Mail an info@gerber-transport.ch (bewusst **nicht** ins SEO-Dashboard) |
 
 Die Angaben zur Firma stammen aus dem Impressum von gerber-transport.ch. Ändern sie sich,
 müssen `impressum.html`, `datenschutz.html`, `CONTACT` in `assets/js/main.js` und das
@@ -79,8 +79,8 @@ m³, Nutzlast, Länge und Verbrauch fehlen noch** — sobald die Werte vorliegen
 Kontaktformular (`contactForm`) und Ankauf-Formular (`sellForm`) senden per `fetch` an
 Formspree. Endpunkt: Konstante `FORMSPREE_ENDPOINT` in `assets/js/main.js` (`https://formspree.io/f/xyewybrz`, Formular «4a-lieferwagen.ch» im Formspree-Pro-Konto).
 
-- Mitgeschickt werden `_subject`, `_source` (`4a-lieferwagen.ch`, für die Zuordnung im
-  Dashboard), `_form`, `_page`, `_replyto` und ein Honeypot `_gotcha`.
+- Mitgeschickt werden `_subject`, `_source` (`4a-lieferwagen.ch`, zeigt im E-Mail die
+  Herkunft), `_form`, `_page`, `_replyto` und ein Honeypot `_gotcha`.
 - Das Erfolgs-Panel erscheint erst nach Bestätigung durch Formspree; bei einem Fehler
   steht Telefon und E-Mail im Hinweis.
 - **Solange `FORMSPREE_ENDPOINT` leer ist**, öffnen die Formulare das E-Mail-Programm mit
@@ -88,8 +88,8 @@ Formspree. Endpunkt: Konstante `FORMSPREE_ENDPOINT` in `assets/js/main.js` (`htt
 - Die Hero-Suche (Abhol-/Rückgabedatum) ist keine Buchung: Sie leitet auf
   `kontakt.html?von=…&bis=…#anfrage` und füllt Nachricht sowie die Felder
   `abholung`/`rueckgabe` vor.
-- Nach dem Eintragen des Endpunkts: im SEO-Dashboard die Formspree-Formular-ID für den
-  Webhook ergänzen und einen Test-Lead schicken — und ihn danach wieder löschen.
+- Anfragen gehen nur per E-Mail an info@gerber-transport.ch; es gibt keinen Webhook ins
+  SEO-Dashboard (Entscheid November 2026).
 
 ## Ratgeber
 
